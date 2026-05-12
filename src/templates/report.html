@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="{{HTML_LANG}}">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{{TITLE}} - {{HOSTNAME}}</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+{{CSS_CONTENT}}
+</style>
+</head>
+<body>
+    <div class="page-shell">
+        <header class="hero sticky-hero">
+            <div class="hero-card">
+                <div class="hero-top brand-header">
+                    <div class="hero-text">
+                        <p class="eyebrow">{{LABEL_REPORT_EYEBROW}}</p>
+                        <h1>{{TITLE}}</h1>
+                        <p class="hero-subtitle">{{HOSTNAME}} · {{OS_NAME}}</p>
+
+                        <div class="hero-meta-inline">
+                            <span><strong>{{LABEL_CREATED}}:</strong> {{GENERATED_AT}}</span>
+                            <span>•</span>
+                            <span><strong>{{LABEL_DURATION}}:</strong> {{TOTAL_DURATION}}</span>
+                            <span>•</span>
+                            <span><strong>{{LABEL_MODULES}}:</strong> {{MODULE_COUNT}}</span>
+                        </div>
+                    </div>
+
+                    <div class="hero-right-cluster">
+                        <div class="hero-status-wrap">
+                            <span class="badge badge-{{OVERALL_STATUS}} hero-status-badge">{{OVERALL_LABEL}}</span>
+                        </div>
+                        <div class="report-logo-wrap">
+                            <a class="report-logo-link" href="{{APP_WEBSITE}}" target="_blank" rel="noopener noreferrer" title="{{APP_WEBSITE}}">
+                                <img class="report-logo" src="https://yt3.googleusercontent.com/zXzem7bbA0rm0FKIe8svIoqYl6FS3re2kqx31psWGF3W8SAzpc_kxg_N-y_LLwIHQHOc90nS8w=s900-c-k-c0x00ffffff-no-rj" alt="Logo">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="hero-collapsible-content" id="heroCollapsibleContent">
+                    <section class="hero-insights-section">
+                        {{HEALTH_SCORE_PANEL}}
+                    </section>
+                </div>
+
+                <div class="hero-collapse-row">
+                    <button
+                        type="button"
+                        id="toggleHeroPanel"
+                        class="hero-collapse-btn"
+                        aria-expanded="true"
+                        aria-controls="heroCollapsibleContent"
+                        data-label-expanded="{{LABEL_HERO_COLLAPSE}}"
+                        data-label-collapsed="{{LABEL_HERO_EXPAND}}"
+                    >
+                        <span class="hero-collapse-btn-text">{{LABEL_HERO_COLLAPSE}}</span>
+                        <span class="hero-collapse-btn-arrow" aria-hidden="true">▴</span>
+                    </button>
+                </div>
+
+                <section class="report-controls-panel report-controls-sticky" id="report-controls">
+                    <div class="toolbar-grid toolbar-grid-extended">
+                        <div class="search-wrap">
+                            <label for="searchInput">{{LABEL_SEARCH}}</label>
+                            <input type="text" id="searchInput" placeholder="{{PLACEHOLDER_SEARCH}}">
+                        </div>
+
+                        <div class="toggle-wrap">
+                            <label class="modern-check" for="problemsOnly">
+                                <input type="checkbox" id="problemsOnly">
+                                <span class="modern-check-ui"></span>
+                                <span>{{LABEL_PROBLEMS_ONLY}}</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="controls-lower-row">
+                        <nav class="category-nav">
+                            <a href="#health-overview">{{NAV_HEALTH_OVERVIEW}}</a>
+                            <a href="#diagnosis-section">{{NAV_DIAGNOSIS}}</a>
+                            <a href="#run-log">{{NAV_RUN_LOG}}</a>
+                            <a href="#category-uebersicht">{{NAV_OVERVIEW}}</a>
+                            <a href="#category-weitere-informationen">{{NAV_MORE_INFO}}</a>
+                        </nav>
+                        <div class="toolbar-actions">
+                            <button
+                                type="button"
+                                id="toggleAllCards"
+                                class="secondary-action-btn"
+                                data-label-expand="{{LABEL_CARDS_EXPAND}}"
+                                data-label-collapse="{{LABEL_CARDS_COLLAPSE}}"
+                                aria-expanded="false"
+                            >{{LABEL_CARDS_EXPAND}}</button>
+                        </div>
+                        <div class="status-filter-panel" aria-label="{{LABEL_STATUS_FILTER_ARIA}}">
+                            <span class="status-filter-title">{{LABEL_STATUS}}</span>
+                            <div class="status-filter-buttons">
+                                <button type="button" class="status-filter-btn is-active" data-status-filter="all">{{LABEL_SHOW_ALL}}</button>
+                                <button type="button" class="status-filter-btn" data-status-filter="ok">{{FILTER_OK}}</button>
+                                <button type="button" class="status-filter-btn" data-status-filter="info">{{FILTER_INFO}}</button>
+                                <button type="button" class="status-filter-btn" data-status-filter="critical">{{FILTER_CRITICAL}}</button>
+                                <button type="button" class="status-filter-btn" data-status-filter="warning">{{FILTER_WARNING}}</button>
+                                <button type="button" class="status-filter-btn" data-status-filter="error">{{FILTER_ERROR}}</button>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+        </header>
+
+        <aside class="sidepanel" id="sidepanel" aria-hidden="true">
+            <div class="sidepanel-header">
+                <h3>{{SIDEPANEL_TITLE}}</h3>
+                <button type="button" id="closeSidePanel" class="sidepanel-close-btn" aria-label="{{SIDEPANEL_CLOSE_LABEL}}">✕</button>
+            </div>
+
+            <div class="sidepanel-body">
+                <div class="quick-overview-grid">
+                    <div class="quick-tile">
+                        <span class="quick-label">{{QUICK_LABEL_HOSTNAME}}</span>
+                        <strong>{{HOSTNAME}}</strong>
+                    </div>
+
+                    <div class="quick-tile">
+                        <span class="quick-label">{{QUICK_LABEL_OS}}</span>
+                        <strong>{{OS_NAME}}</strong>
+                        <span class="quick-sub">{{OS_VERSION_BADGE}}</span>
+                    </div>
+
+                    <div class="quick-tile">
+                        <span class="quick-label">{{QUICK_LABEL_CPU}}</span>
+                        <strong>{{QUICK_CPU}}</strong>
+                    </div>
+
+                    <div class="quick-tile">
+                        <span class="quick-label">{{QUICK_LABEL_RAM}}</span>
+                        <strong>{{QUICK_RAM}}</strong>
+                    </div>
+
+                    <div class="quick-tile quick-tile-stack">
+                        <span class="quick-label">{{QUICK_LABEL_DRIVES}}</span>
+                        <div class="stack-list">
+                            {{QUICK_SYSTEM_DISKS}}
+                        </div>
+                    </div>
+
+                    <div class="quick-tile">
+                        <span class="quick-label">{{QUICK_LABEL_UPTIME}}</span>
+                        <strong>{{QUICK_UPTIME}}</strong>
+                    </div>
+
+                    <div class="quick-tile">
+                        <span class="quick-label">{{QUICK_LABEL_EXTERNAL_IP}}</span>
+                        <strong>{{QUICK_EXTERNAL_IP}}</strong>
+                    </div>
+                </div>
+
+                <div class="top-issues-panel">
+                    <div class="section-head compact-head">
+                        <h3>{{LABEL_TOP_ISSUES}}</h3>
+                    </div>
+                    <ul class="issue-list top-issues-list">
+                        {{ISSUES_HTML}}
+                    </ul>
+                </div>
+            </div>
+        </aside>
+
+        <div class="sidepanel-backdrop" id="sidepanelBackdrop"></div>
+
+		<div class="sticky-tab-stack" id="stickyTabStack">
+			<div class="sidepanel-tab-wrap" id="sidepanelTabWrap">
+				<button
+					type="button"
+					id="openSidePanel"
+					class="sidepanel-edge-tab"
+					aria-controls="sidepanel"
+					aria-expanded="false"
+				>
+					<span class="sidepanel-edge-tab-text">{{SIDEPANEL_TAB_LABEL}}</span>
+				</button>
+			</div>
+
+			<div class="diagnosis-tab-wrap" id="diagnosisTabWrap">
+				<button
+					type="button"
+					id="openDiagnosisTab"
+					class="sidepanel-edge-tab diagnosis-edge-tab"
+					aria-controls="diagnosis-section"
+                    aria-expanded="false"
+				>
+					<span class="sidepanel-edge-tab-text">{{NAV_DIAGNOSIS}}</span>
+				</button>
+			</div>
+
+			<div class="checklist-tab-wrap" id="checklistTabWrap">
+				<button
+					type="button"
+					id="openChecklistTab"
+					class="sidepanel-edge-tab checklist-edge-tab"
+					aria-controls="admin-checklist"
+                    aria-expanded="false"
+				>
+					<span class="sidepanel-edge-tab-text">{{CHECKLIST_TAB_LABEL}}</span>
+				</button>
+			</div>
+		</div>
+
+        <main class="content-shell">
+
+            <section class="health-overview" id="health-overview">
+                <div class="section-head">
+                    <h2>{{NAV_HEALTH_OVERVIEW}}</h2>
+                </div>
+                <div class="health-grid">
+                    {{HEALTH_CARDS}}
+                </div>
+            </section>
+
+
+            <section class="diagnosis-section" id="diagnosis-section" data-has-cases="{{DIAGNOSIS_HAS_CASES}}">
+                <div class="section-head diagnosis-head">
+                    <h2>{{NAV_DIAGNOSIS}}</h2>
+                    <div class="diagnosis-actions">
+                        <button type="button" id="closeDiagnosisPanel" class="sidepanel-close-btn diagnosis-close-btn" aria-label="{{SIDEPANEL_CLOSE_LABEL}}">✕</button>
+                    </div>
+                </div>
+                <div class="panel diagnosis-panel">
+                    {{DIAGNOSIS_HTML}}
+                </div>
+            </section>
+
+            <section class="admin-checklist-section" id="admin-checklist">
+                <div class="section-head admin-checklist-head">
+                    <h2>{{CHECKLIST_TITLE}}</h2>
+                    <div class="admin-checklist-actions">
+                        <button type="button" id="closeChecklistPanel" class="sidepanel-close-btn checklist-close-btn" aria-label="{{CHECKLIST_CLOSE_LABEL}}">✕</button>
+                        <button type="button" id="expandChecklist" class="mini-action-btn">{{CHECKLIST_EXPAND_LABEL}}</button>
+                        <button type="button" id="resetChecklist" class="mini-action-btn danger">{{CHECKLIST_RESET_LABEL}}</button>
+                    </div>
+                </div>
+
+                <div class="panel admin-checklist-panel">
+                    <div class="admin-intro-grid">
+                        <div class="admin-intro-card emphasis">
+                            <h3>{{CHECKLIST_INTRO_PURPOSE_TITLE}}</h3>
+                            <p>{{CHECKLIST_INTRO_PURPOSE_TEXT}}</p>
+                        </div>
+                        <div class="admin-intro-card">
+                            <h3>{{CHECKLIST_INTRO_NOTE_TITLE}}</h3>
+                            <p>{{CHECKLIST_INTRO_NOTE_TEXT}}</p>
+                        </div>
+                        <div class="admin-intro-card compact">
+                            <h3>{{CHECKLIST_INTRO_ORDER_TITLE}}</h3>
+                            <p>{{CHECKLIST_INTRO_ORDER_TEXT}}</p>
+                        </div>
+                    </div>
+
+                    <div class="checklist-groups">
+                        {{GENERATED_CHECKLIST_HTML}}
+                        <details class="checklist-group" open>
+                            <summary><span>{{CHECKLIST_GROUP_1_TITLE}}</span><span class="checklist-count" data-group="basis">0/4</span></summary>
+                            <div class="checklist-body">
+                                <p class="checklist-example"><strong>{{CHECKLIST_SYMPTOMS_LABEL}}</strong> {{CHECKLIST_GROUP_1_SYMPTOMS}}</p>
+                                <label class="check-item"><input type="checkbox" data-checklist-group="basis">{{CHECKLIST_GROUP_1_ITEM_1}}</label>
+                                <label class="check-item"><input type="checkbox" data-checklist-group="basis">{{CHECKLIST_GROUP_1_ITEM_2}}</label>
+                                <label class="check-item"><input type="checkbox" data-checklist-group="basis">{{CHECKLIST_GROUP_1_ITEM_3}}</label>
+                                <label class="check-item"><input type="checkbox" data-checklist-group="basis">{{CHECKLIST_GROUP_1_ITEM_4}}</label>
+                                <p class="report-help"><strong>{{CHECKLIST_HELPFUL_LABEL}}</strong> {{CHECKLIST_GROUP_1_HELPFUL}}</p>
+                            </div>
+                        </details>
+
+                        <details class="checklist-group">
+                            <summary><span>{{CHECKLIST_GROUP_2_TITLE}}</span><span class="checklist-count" data-group="zeit">0/4</span></summary>
+                            <div class="checklist-body">
+                                <p class="checklist-example"><strong>{{CHECKLIST_SYMPTOMS_LABEL}}</strong> {{CHECKLIST_GROUP_2_SYMPTOMS}}</p>
+                                <label class="check-item"><input type="checkbox" data-checklist-group="zeit">{{CHECKLIST_GROUP_2_ITEM_1}}</label>
+                                <label class="check-item"><input type="checkbox" data-checklist-group="zeit">{{CHECKLIST_GROUP_2_ITEM_2}}</label>
+                                <label class="check-item"><input type="checkbox" data-checklist-group="zeit">{{CHECKLIST_GROUP_2_ITEM_3}}</label>
+                                <label class="check-item"><input type="checkbox" data-checklist-group="zeit">{{CHECKLIST_GROUP_2_ITEM_4}}</label>
+                                <p class="report-help"><strong>{{CHECKLIST_HELPFUL_LABEL}}</strong> {{CHECKLIST_GROUP_2_HELPFUL}}</p>
+                            </div>
+                        </details>
+
+                        <details class="checklist-group">
+                            <summary><span>{{CHECKLIST_GROUP_3_TITLE}}</span><span class="checklist-count" data-group="netz">0/6</span></summary>
+                            <div class="checklist-body">
+                                <p class="checklist-example"><strong>{{CHECKLIST_SYMPTOMS_LABEL}}</strong> {{CHECKLIST_GROUP_3_SYMPTOMS}}</p>
+                                <label class="check-item"><input type="checkbox" data-checklist-group="netz">{{CHECKLIST_GROUP_3_ITEM_1}}</label>
+                                <label class="check-item"><input type="checkbox" data-checklist-group="netz">{{CHECKLIST_GROUP_3_ITEM_2}}</label>
+                                <label class="check-item"><input type="checkbox" data-checklist-group="netz">{{CHECKLIST_GROUP_3_ITEM_3}}</label>
+                                <label class="check-item"><input type="checkbox" data-checklist-group="netz">{{CHECKLIST_GROUP_3_ITEM_4}}</label>
+                                <label class="check-item"><input type="checkbox" data-checklist-group="netz">{{CHECKLIST_GROUP_3_ITEM_5}}</label>
+                                <label class="check-item"><input type="checkbox" data-checklist-group="netz">{{CHECKLIST_GROUP_3_ITEM_6}}</label>
+                                <p class="report-help"><strong>{{CHECKLIST_HELPFUL_LABEL}}</strong> {{CHECKLIST_GROUP_3_HELPFUL}}</p>
+                            </div>
+                        </details>
+
+                        <details class="checklist-group">
+                            <summary><span>{{CHECKLIST_GROUP_4_TITLE}}</span><span class="checklist-count" data-group="zugriff">0/5</span></summary>
+                            <div class="checklist-body">
+                                <p class="checklist-example"><strong>{{CHECKLIST_SYMPTOMS_LABEL}}</strong> {{CHECKLIST_GROUP_4_SYMPTOMS}}</p>
+                                <label class="check-item"><input type="checkbox" data-checklist-group="zugriff">{{CHECKLIST_GROUP_4_ITEM_1}}</label>
+                                <label class="check-item"><input type="checkbox" data-checklist-group="zugriff">{{CHECKLIST_GROUP_4_ITEM_2}}</label>
+                                <label class="check-item"><input type="checkbox" data-checklist-group="zugriff">{{CHECKLIST_GROUP_4_ITEM_3}}</label>
+                                <label class="check-item"><input type="checkbox" data-checklist-group="zugriff">{{CHECKLIST_GROUP_4_ITEM_4}}</label>
+                                <label class="check-item"><input type="checkbox" data-checklist-group="zugriff">{{CHECKLIST_GROUP_4_ITEM_5}}</label>
+                                <p class="report-help"><strong>{{CHECKLIST_HELPFUL_LABEL}}</strong> {{CHECKLIST_GROUP_4_HELPFUL}}</p>
+                            </div>
+                        </details>
+
+                        <details class="checklist-group">
+                            <summary><span>{{CHECKLIST_GROUP_5_TITLE}}</span><span class="checklist-count" data-group="system">0/6</span></summary>
+                            <div class="checklist-body">
+                                <p class="checklist-example"><strong>{{CHECKLIST_SYMPTOMS_LABEL}}</strong> {{CHECKLIST_GROUP_5_SYMPTOMS}}</p>
+                                <label class="check-item"><input type="checkbox" data-checklist-group="system">{{CHECKLIST_GROUP_5_ITEM_1}}</label>
+                                <label class="check-item"><input type="checkbox" data-checklist-group="system">{{CHECKLIST_GROUP_5_ITEM_2}}</label>
+                                <label class="check-item"><input type="checkbox" data-checklist-group="system">{{CHECKLIST_GROUP_5_ITEM_3}}</label>
+                                <label class="check-item"><input type="checkbox" data-checklist-group="system">{{CHECKLIST_GROUP_5_ITEM_4}}</label>
+                                <label class="check-item"><input type="checkbox" data-checklist-group="system">{{CHECKLIST_GROUP_5_ITEM_5}}</label>
+                                <label class="check-item"><input type="checkbox" data-checklist-group="system">{{CHECKLIST_GROUP_5_ITEM_6}}</label>
+                                <p class="report-help"><strong>{{CHECKLIST_HELPFUL_LABEL}}</strong> {{CHECKLIST_GROUP_5_HELPFUL}}</p>
+                            </div>
+                        </details>
+                    </div>
+                </div>
+            </section>
+
+            <section class="run-log" id="run-log">
+                <div class="section-head">
+                    <h2>{{NAV_RUN_LOG}}</h2>
+                </div>
+                <div class="panel run-log-panel">
+                    <div class="run-log-toolbar">
+                        <div class="run-log-toolbar-copy">
+                            <strong>{{RUNLOG_FILTER_TITLE}}</strong>
+                            <p>{{RUNLOG_FILTER_HINT}}</p>
+                        </div>
+                        <div class="run-log-toolbar-actions">
+                            <span class="runlog-selection-count" id="runlogSelectionCount">{{RUNLOG_SELECTED_COUNT}}: 0</span>
+                            <button type="button" id="resetRunlogSelection" class="mini-action-btn">{{RUNLOG_RESET_SELECTION}}</button>
+                        </div>
+                    </div>
+                    <div class="table-wrap">
+                        <table class="data-table run-log-table">
+                            <thead>
+                                <tr>
+                                    <th>{{RUNLOG_MODULE}}</th>
+                                    <th>{{RUNLOG_CATEGORY}}</th>
+                                    <th>{{RUNLOG_STATUS}}</th>
+                                    <th>{{RUNLOG_DURATION}}</th>
+                                    <th>{{RUNLOG_SUMMARY}}</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {{LOG_ROWS}}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+
+            {{CATEGORY_SECTIONS}}
+        </main>
+    </div>
+
+    <footer class="footer">
+        <div class="footer-line1">
+            {{FOOTER_GENERATED_WITH}} <b>{{TITLE}}</b> {{FOOTER_TOOL}}
+            <span class="rev">Version {{APP_VERSION}}</span>
+        </div>
+
+        <div class="footer-row" style="margin-top:6px">
+            <div class="footer-hint">
+                {{FOOTER_LANGUAGE_HINT}}
+            </div>
+            <div class="footer-line3">
+                <a href="{{APP_WEBSITE}}" target="_blank" rel="noopener noreferrer">w@lt&reg;one1</a>
+            </div>
+        </div>
+
+        <div class="footer-line3" style="margin-top:6px">
+            Build date: {{APP_BUILD_DATE}} |
+            Website: <a href="{{APP_WEBSITE}}" target="_blank" rel="noopener noreferrer">{{APP_WEBSITE}}</a> |
+            Contact: <a href="mailto:{{APP_CONTACT_EMAIL}}">{{APP_CONTACT_EMAIL}}</a>
+        </div>
+    </footer>
+
+<script>
+{{JS_CONTENT}}
+</script>
+</body>
+</html>

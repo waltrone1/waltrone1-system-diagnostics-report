@@ -1,0 +1,51 @@
+PY2EXE-AUTOBUILDER FUER waltrone1 System Diagnostics Report
+===========================================
+
+Standard-Metadaten:
+- Application version: 1.0.0.0
+- Build date: 2026-04-27
+- Website: https://waltrone1.de/wltones-admin-tools/
+- Contact: gwaltrone@gmail.com
+- Product: waltrone1 Admin Tools
+
+Gewuenschte Struktur:
+
+waltrone1-System-Diagnostics-Report\
+|-- app.py
+|-- version_info.txt
+|-- waltrone1-System-Diagnostics-Report.ico
+|-- static\
+|-- templates\
+`-- py2exe\
+    |-- build_exe_windows.bat
+    |-- build_exe_debug_console.bat
+    |-- start_test_windows.bat
+    |-- clean_build_windows.bat
+    |-- build_installer_inno.bat
+    |-- requirements.txt
+    |-- waltrone1-System-Diagnostics-Report_py2exe.spec
+    `-- waltrone1-System-Diagnostics-Report_InnoSetup.iss
+
+EXE bauen:
+1. In den Ordner .\py2exe wechseln.
+2. build_exe_windows.bat starten.
+
+Ergebnis:
+.\py2exe\dist\waltrone1-System-Diagnostics-Report.exe
+
+Debug-Build:
+build_exe_debug_console.bat
+
+Python-Teststart:
+start_test_windows.bat
+
+Clean Build:
+clean_build_windows.bat
+
+Installer optional:
+1. Erst build_exe_windows.bat ausfuehren.
+2. Inno Setup installieren.
+3. build_installer_inno.bat starten.
+
+Hinweis:
+Der Autobuilder veraendert keine Diagnose-, PowerShell-, HTML-Report- oder GUI-Funktionen.
