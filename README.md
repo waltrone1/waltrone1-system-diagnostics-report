@@ -84,35 +84,13 @@ waltrone1-system-diagnostics-report/
 │   └── usage.md
 │
 ├── screenshots/
-│   ├── 01-start-window.png
-│   ├── 02-overall-score-health-status.png
-│   ├── 03-report-index.png
-│   ├── 04-module-list.png
-│   ├── 05-system-overview.png
-│   ├── 06-diagnosis-action-plan.png
-│   ├── 07-admin-troubleshooting-checklist.png
-│   └── 08-history-comparison.png
+│   └── application screenshots
 │
 └── src/
-    ├── app.py
-    ├── i18n.py
-    ├── version_info.txt
-    ├── waltrone1-System-Diagnostics-Report.ico
-    │
-    ├── py2exe/
-    │   ├── build_exe_windows.bat
-    │   ├── PY2EXE-ANLEITUNG-waltrone1-System-Diagnostics-Report.txt
-    │   ├── requirements.txt
-    │   └── waltrone1-System-Diagnostics-Report_py2exe.spec
-    │
-    ├── static/
-    │   ├── css/
-    │   │   └── report.css
-    │   └── js/
-    │       └── report.js
-    │
-    └── templates/
-        └── report.html
+    ├── application source files
+    ├── static assets
+    ├── templates
+    └── py2exe build files
 ```
 
 ---
