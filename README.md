@@ -4,24 +4,24 @@
 
 It creates a structured Windows system report with health status, system overview, diagnostics modules, detected patterns, action recommendations and an admin troubleshooting checklist.
 
-The tool is designed for users, admins and technicians who want a quick but detailed overview of a Windows system without manually collecting information from many different places.
+The tool is designed for users, admins and technicians who want a quick but detailed overview of a Windows system without manually collecting information from many different Windows menus and tools.
 
 ---
 
 ## Features
 
-- Windows system report generation
-- Overall score and health status
+- Windows system diagnostics report generation
+- Overall system score and health status
 - System overview with important device information
 - Hardware and operating system information
 - CPU, RAM and drive overview
 - Network and remote access checks
 - Security-related checks
 - Windows Update and reboot status information
-- Antivirus and Defender status
+- Antivirus and Microsoft Defender status
 - BitLocker and TPM status
 - Firewall information
-- Installed software and updates overview
+- Installed software and update overview
 - Module-based report structure
 - Filter and search functions inside the report
 - Diagnosis and action plan section
@@ -44,14 +44,21 @@ This tool can be useful for:
 - Comparing system reports between multiple runs
 - Finding warnings, critical states and possible next steps
 - Supporting admin troubleshooting workflows
+- Creating a readable diagnostics report for later review
 
 ---
 
 ## Project Status
 
-This project is currently available as an early public release.
+This project is currently available as a public release.
 
 The repository provides source files, documentation, screenshots and build-related files for transparency and community access.
+
+Current version:
+
+```text
+1.0.0.0
+```
 
 ---
 
@@ -93,5 +100,138 @@ waltrone1-system-diagnostics-report/
     ├── waltrone1-System-Diagnostics-Report.ico
     │
     ├── py2exe/
+    │   ├── build_exe_windows.bat
+    │   ├── PY2EXE-ANLEITUNG-waltrone1-System-Diagnostics-Report.txt
+    │   ├── requirements.txt
+    │   └── waltrone1-System-Diagnostics-Report_py2exe.spec
+    │
     ├── static/
+    │   ├── css/
+    │   │   └── report.css
+    │   └── js/
+    │       └── report.js
+    │
     └── templates/
+        └── report.html
+```
+
+---
+
+## Screenshots
+
+### Start Window
+
+![Start Window](screenshots/01-start-window.png)
+
+### Overall Score & Health Status
+
+![Overall Score and Health Status](screenshots/02-overall-score-health-status.png)
+
+### Report Index
+
+![Report Index](screenshots/03-report-index.png)
+
+### Module List
+
+![Module List](screenshots/04-module-list.png)
+
+### System Overview
+
+![System Overview](screenshots/05-system-overview.png)
+
+### Diagnosis & Action Plan
+
+![Diagnosis and Action Plan](screenshots/06-diagnosis-action-plan.png)
+
+### Admin Troubleshooting Checklist
+
+![Admin Troubleshooting Checklist](screenshots/07-admin-troubleshooting-checklist.png)
+
+### History Comparison
+
+![History Comparison](screenshots/08-history-comparison.png)
+
+---
+
+## Basic Usage
+
+1. Download the latest release.
+2. Extract the ZIP file.
+3. Start the application.
+4. Generate a system diagnostics report.
+5. Review the generated HTML report.
+6. Use the diagnosis and checklist sections for troubleshooting.
+7. Compare results with previous runs if available.
+
+---
+
+## Build Information
+
+The source folder contains py2exe-related build files.
+
+These files can be used to create a Windows executable from the Python application.
+
+Build-related files are located in:
+
+```text
+src/py2exe/
+```
+
+Please note that generated build output such as `.exe`, `.zip`, `build/`, `dist/` or release folders should not be committed directly to the repository.
+
+Final release packages should be published through GitHub Releases.
+
+---
+
+## License
+
+This project is released under the **WALTRONE Community License**.
+
+You may use this tool for free.
+
+However, the following is not allowed without written permission:
+
+- Commercial resale
+- Rebranding
+- Selling modified versions
+- Commercial integration into paid products or services
+- Republishing the project under another name
+- Removing WALTRONE branding or author information
+
+For details, see the `LICENSE` file.
+
+---
+
+## About WALTRONE
+
+**WALTRONE** is a GitHub and community project focused on small, useful tools for Windows, automation, productivity and system management.
+
+GitHub handle / domain identity:
+
+```text
+waltrone1
+```
+
+Project brand:
+
+```text
+WALTRONE
+```
+
+---
+
+## Support
+
+This tool is free to use.
+
+If you find it useful, you may support the project voluntarily through the official WALTRONE download/support page.
+
+---
+
+## Disclaimer
+
+This tool is provided as-is, without warranty of any kind.
+
+Use it at your own risk.
+
+The author is not responsible for data loss, system issues or damages caused by the use of this software.
