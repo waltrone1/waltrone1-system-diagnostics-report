@@ -6,11 +6,13 @@ All notable changes to this project will be documented in this file.
 
 ### Added
 
-- Initial public repository structure
-- Added README.md
+- Initial public release
+- Added application source files
+- Added README.md with project description
 - Added WALTRONE Community License
-- Added docs folder
-- Added screenshots folder
-- Added src folder
-- Added placeholder files
-- Prepared project structure for the first public release
+- Added usage documentation
+- Added screenshots
+- Added py2exe build files
+- Added HTML report templates
+- Added static CSS and JavaScript files
+- Prepared repository structure for GitHub release
