@@ -93,6 +93,12 @@ waltrone1-system-diagnostics-report/
     └── py2exe build files
 ```
 
+The `src/` folder contains the application source files and build-related files.
+
+The `screenshots/` folder contains the images used in this README.
+
+Generated files such as `.exe`, `.zip`, `build/`, `dist/` or release folders should not be committed directly to the repository.
+
 ---
 
 ## Screenshots
@@ -143,19 +149,21 @@ waltrone1-system-diagnostics-report/
 
 ---
 
-## Build Information
+## Build / Source Notes
 
-The source folder contains py2exe-related build files.
+The source files are located in:
 
-These files can be used to create a Windows executable from the Python application.
+```text
+src/
+```
 
-Build-related files are located in:
+Build-related files for creating a Windows executable are located in:
 
 ```text
 src/py2exe/
 ```
 
-Please note that generated build output such as `.exe`, `.zip`, `build/`, `dist/` or release folders should not be committed directly to the repository.
+Generated build output such as `.exe`, `.zip`, `build/`, `dist/` or release folders should not be committed directly to the repository.
 
 Final release packages should be published through GitHub Releases.
 
