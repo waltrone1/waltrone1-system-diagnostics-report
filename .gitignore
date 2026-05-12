@@ -1,1 +1,37 @@
+# Windows
+Thumbs.db
+Desktop.ini
+$RECYCLE.BIN/
 
+# PowerShell temporary files
+*.ps1xml
+*.pssc
+*.psd1.tmp
+
+# Logs
+*.log
+logs/
+
+# Temporary files
+*.tmp
+*.temp
+*.bak
+*.old
+
+# Build / release output
+build/
+dist/
+release/
+releases/
+*.zip
+*.7z
+*.rar
+
+# Visual Studio Code
+.vscode/
+
+# PowerShell packaged EXE output
+*.exe
+
+# System files
+.DS_Store
