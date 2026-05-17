@@ -8,6 +8,44 @@ The tool is designed for users, admins and technicians who want a quick but deta
 
 ---
 
+## Screenshots
+
+The screenshots show the start window, overall health score, report index, module list, system overview, diagnosis and action plan, admin troubleshooting checklist and history comparison.
+
+### Start Window
+
+![Start Window](screenshots/01-start-window.png)
+
+### Overall Score & Health Status
+
+![Overall Score and Health Status](screenshots/02-overall-score-health-status.png)
+
+### Report Index
+
+![Report Index](screenshots/03-report-index.png)
+
+### Module List
+
+![Module List](screenshots/04-module-list.png)
+
+### System Overview
+
+![System Overview](screenshots/05-system-overview.png)
+
+### Diagnosis & Action Plan
+
+![Diagnosis and Action Plan](screenshots/06-diagnosis-action-plan.png)
+
+### Admin Troubleshooting Checklist
+
+![Admin Troubleshooting Checklist](screenshots/07-admin-troubleshooting-checklist.png)
+
+### History Comparison
+
+![History Comparison](screenshots/08-history-comparison.png)
+
+---
+
 ## Features
 
 - Windows system diagnostics report generation
@@ -84,7 +122,14 @@ waltrone1-system-diagnostics-report/
 │   └── usage.md
 │
 ├── screenshots/
-│   └── application screenshots
+│   ├── 01-start-window.png
+│   ├── 02-overall-score-health-status.png
+│   ├── 03-report-index.png
+│   ├── 04-module-list.png
+│   ├── 05-system-overview.png
+│   ├── 06-diagnosis-action-plan.png
+│   ├── 07-admin-troubleshooting-checklist.png
+│   └── 08-history-comparison.png
 │
 └── src/
     ├── application source files
@@ -98,42 +143,6 @@ The `src/` folder contains the application source files and build-related files.
 The `screenshots/` folder contains the images used in this README.
 
 Generated files such as `.exe`, `.zip`, `build/`, `dist/` or release folders should not be committed directly to the repository.
-
----
-
-## Screenshots
-
-### Start Window
-
-![Start Window](screenshots/01-start-window.png)
-
-### Overall Score & Health Status
-
-![Overall Score and Health Status](screenshots/02-overall-score-health-status.png)
-
-### Report Index
-
-![Report Index](screenshots/03-report-index.png)
-
-### Module List
-
-![Module List](screenshots/04-module-list.png)
-
-### System Overview
-
-![System Overview](screenshots/05-system-overview.png)
-
-### Diagnosis & Action Plan
-
-![Diagnosis and Action Plan](screenshots/06-diagnosis-action-plan.png)
-
-### Admin Troubleshooting Checklist
-
-![Admin Troubleshooting Checklist](screenshots/07-admin-troubleshooting-checklist.png)
-
-### History Comparison
-
-![History Comparison](screenshots/08-history-comparison.png)
 
 ---
 
